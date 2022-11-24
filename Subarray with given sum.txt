@@ -1,0 +1,86 @@
+class Solution
+{
+public:
+ vector<int> subarraySum(int arr[], int n, long long s)
+    {
+       /* vector <int> v ;
+         bool flag = false;
+        int i ,j;
+        for(i = 0 ; i < n ; i++){
+            int sum = 0 ;
+           
+            for(j = i ; j < n ; j++){
+                sum+=arr[j];
+                if(sum==s)
+                {
+                  
+                    flag = true;
+                  break;
+                }
+            }
+            if(flag==true)
+            break;
+        }
+        if(flag==false)
+           v.push_back(-1);
+        
+        
+        else{
+          v.push_back(i+1);
+                    v.push_back(j+1);
+        }
+        return v ;
+    
+} 
+vector <int> v;
+        // Your code here
+        for (int i = 0; i < n; i++) {
+        int currentSum = arr[i];
+ 
+        if (currentSum == s) {
+           // cout << "Sum found at indexes " << i << endl;
+           v.push_back(i+1);
+            v.push_back(i+1);
+            return v;
+        }
+        else {
+            // Try all subarrays starting with 'i'
+            for (int j = i + 1; j < n; j++) {
+                currentSum += arr[j];
+ 
+                if (currentSum == s) {
+                   // cout << "Sum found between indexes "
+                   //      << i << " and " << j << endl;
+                     v.push_back(i+1);
+            v.push_back(j+1);
+            return v;
+                }
+            }
+        }
+    }
+   // cout << "No subarray found";
+   v.push_back(-1);
+    return v;
+}*/
+ vector <int> v;
+   int sum = 0;
+ int start = 0 ; //holds starting index of the subarray
+ for(int i = 0 ; i < n ; i++){
+   sum+=arr[i];
+     while(sum > s && start < i)
+{
+    sum = sum - arr[start];
+    start++;
+} 
+ 
+     if(sum == s){
+         v.push_back(start+1);
+         v.push_back(i+1);
+         return v ;
+     }
+ 
+ }
+v.push_back(-1);
+ return v ;
+    }
+};
